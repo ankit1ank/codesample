@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Home page</title>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        Restaurant
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/restaurant/logout">Logout</a>
+              </li>
+      </ul>
+</div>
+</nav>
+<div class='container'>
+{% if user.is_authenticated %}
+<br>
+<p>Welcome {{ user.username }} !!!</p> 
+{% else %}
+{% endif %}
+<label for="Instruction"> Dish </label>
+<label for="Instruction"> Quantity </label>
+<br>
+<form method="post">
+    {% csrf_token %}
+  {% for item in menu_items %}
+    <label for="item"> {{ item.name }} </label>
+    <input id="{{ item.id }}" type="text" name="menuitem_{{ item.id }}" value="">
+    <br>
+  {% endfor %}
+  <br>
+  <input type="submit" value="Place Order">
+</form>
+</div>
+{% endblock %}
