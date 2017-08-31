@@ -27,12 +27,13 @@
 {% else %}
 {% endif %}
 <label for="Instruction"> Dish </label>
+<label for="Instruction"> Price </label>
 <label for="Instruction"> Quantity </label>
 <br>
 <form method="post">
     {% csrf_token %}
   {% for item in menu_items %}
-    <label for="item"> {{ item.name }} </label>
+    <label for="item"> {{ item.name }} {{ item.price }}</label>
     <input id="{{ item.id }}" type="text" name="menuitem_{{ item.id }}" value="">
     <br>
   {% endfor %}

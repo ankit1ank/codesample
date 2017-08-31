@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from restaurant.forms import RegistrationForm, OrderCreationForm
+from restaurant.forms import RegistrationForm
 from restaurant.models import MenuItem
 
 
