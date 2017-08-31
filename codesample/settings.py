@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #    'codesample.middleware.LoginMiddleware',
+    'codesample.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'codesample.urls'
@@ -122,4 +122,5 @@ LOGIN_EXEMPT_URLS = [
     r'^restaurant/login/$',
     r'^restaurant/logout/$',
     r'^restaurant/register/$',
+    r'admin/',
 ]
